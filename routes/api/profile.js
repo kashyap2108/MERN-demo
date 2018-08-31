@@ -139,7 +139,7 @@ router.post(
     if (req.body.facebook) profileFields.social.facebook = req.body.facebook;
     if (req.body.linkedin) profileFields.social.linkedin = req.body.linkedin;
     if (req.body.instagram) profileFields.social.instagram = req.body.instagram;
-
+    console.log("Fucker!!", profileFields);
     Profile.findOne({ user: req.user.id }).then(profile => {
       if (profile) {
         // Update
@@ -147,7 +147,10 @@ router.post(
           { user: req.user.id },
           { $set: profileFields },
           { new: true }
-        ).then(profile => res.json(profile));
+        ).then(profile => {
+          console.log("updated profile", profile);
+          res.json(profile);
+        });
       } else {
         // Create
 
