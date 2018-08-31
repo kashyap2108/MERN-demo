@@ -139,7 +139,7 @@ router.post(
     if (req.body.facebook) profileFields.social.facebook = req.body.facebook;
     if (req.body.linkedin) profileFields.social.linkedin = req.body.linkedin;
     if (req.body.instagram) profileFields.social.instagram = req.body.instagram;
-    console.log("Fucker!!", profileFields);
+
     Profile.findOne({ user: req.user.id }).then(profile => {
       if (profile) {
         // Update
